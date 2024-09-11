@@ -82,7 +82,7 @@ public class InMemoryPersistenceTest {
         }
 
         Set<Blueprint> allBlueprints = ibpp.getAllBlueprints();
-        assertEquals("The number of blueprints retrieved does not match the expected size.", 3, allBlueprints.size()); 
+        assertEquals("The number of blueprints retrieved does not match the expected size.", 3, allBlueprints.size());
     }
 
     // New test for getBlueprintsByAuthor
