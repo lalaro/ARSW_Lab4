@@ -12,10 +12,7 @@ import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -65,6 +62,16 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         return authorBlueprints.get(0);
     }
 
+    public Set<Blueprint> getAllBlueprints(){
+        Set<Blueprint> valores = new HashSet<>(blueprints.values());
+        return valores;
+    }
+
+
+    public List<Tuple> getAllKeys(){
+        List<Tuple> llaves = new ArrayList<>(blueprints.keySet());
+        return llaves;
+    }
 
 
 

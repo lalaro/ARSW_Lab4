@@ -9,6 +9,8 @@ import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
+
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -29,8 +31,13 @@ public class BlueprintsServices {
         
     }
     
-    public Set<Blueprint> getAllBlueprints(){
-        return null;
+    public ArrayList<String> getAllBlueprints(){
+        ArrayList<String> val = new ArrayList<>();
+        for(Blueprint b : bpp.getAllBlueprints()){
+            val.add(b.toString());
+        }
+
+        return val;
     }
     
     /**
