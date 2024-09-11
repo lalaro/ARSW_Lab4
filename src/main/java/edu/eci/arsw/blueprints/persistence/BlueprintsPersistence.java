@@ -14,7 +14,7 @@ import java.util.Set;
  * @author hcadavid
  */
 public interface BlueprintsPersistence {
-    
+    public Set<Blueprint> getAllBlueprints();
     /**
      * 
      * @param bp the new blueprint
