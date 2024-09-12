@@ -86,4 +86,4 @@ Y se realiza la inserción de dependencias por:
 ![](./img/media/Image18.jpeg)
 
 5. Agrege las pruebas correspondientes a cada uno de estos filtros, y pruebe su funcionamiento en el programa de prueba, comprobando que sólo cambiando la posición de las anotaciones -sin cambiar nada más-, el programa retorne los planos filtrados de la manera (A) o de la manera (B). 
-![](./img/media/Image19.jpeg)
+![](./img/media/Image20.jpeg)
