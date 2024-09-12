@@ -9,6 +9,8 @@ import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
+import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
+import edu.eci.arsw.blueprints.filters.BlueprintsFilter;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -23,12 +25,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BlueprintsServices {
-   
+
     @Autowired
     BlueprintsPersistence bpp;
-    
-    public void addNewBlueprint(Blueprint bp){
-        
+
+    public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException {
+        bpp.saveBlueprint(bp);
     }
     
     public ArrayList<String> getAllBlueprints(){
@@ -59,9 +61,8 @@ public class BlueprintsServices {
      * @return all the blueprints of the given author
      * @throws BlueprintNotFoundException if the given author doesn't exist
      */
-    public Blueprint getBlueprintsByAuthor(String author) throws BlueprintNotFoundException{
-        return bpp.getBlueprintByAuthor(author);
-
+    public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException{
+        return bpp.getBlueprintsByAuthor(author);
     }
 
 }
