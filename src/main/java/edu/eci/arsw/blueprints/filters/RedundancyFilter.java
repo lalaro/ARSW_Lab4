@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service("RedundancyFilter")
+
+@Service
 public class RedundancyFilter implements BlueprintsFilter {
 
     @Override
-    public Blueprint filter(Blueprint bp) {
+    public void filter(Blueprint bp) {
         List<Point> uniquePoints = new ArrayList<>();
 
         for (Point i : bp.getPoints()) {
@@ -29,6 +30,6 @@ public class RedundancyFilter implements BlueprintsFilter {
 
         Point[] uniquePointsArray = uniquePoints.toArray(new Point[0]);
 
-        return new Blueprint(bp.getAuthor(), bp.getName(), uniquePointsArray);
+        new Blueprint(bp.getAuthor(), bp.getName(), uniquePointsArray);
     }
 }
