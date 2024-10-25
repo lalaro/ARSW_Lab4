@@ -16,7 +16,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring-boot.version>3.2.10</spring-boot.version> <!-- Asegúrate de usar una versión compatible de Spring Boot -->
+        <spring-boot.version>3.2.11</spring-boot.version> <!-- Asegúrate de usar una versión compatible de Spring Boot -->
     </properties>
 
     <dependencies>
