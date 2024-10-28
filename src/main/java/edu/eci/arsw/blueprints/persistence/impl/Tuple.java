@@ -3,7 +3,6 @@ package edu.eci.arsw.blueprints.persistence.impl;
 import java.util.Objects;
 
 public class Tuple<T1, T2> {
-
     T1 o1;
     T2 o2;
 
@@ -34,21 +33,10 @@ public class Tuple<T1, T2> {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         final Tuple<?, ?> other = (Tuple<?, ?>) obj;
-        if (!Objects.equals(this.o1, other.o1)) {
-            return false;
-        }
-        if (!Objects.equals(this.o2, other.o2)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.o1, other.o1) && Objects.equals(this.o2, other.o2);
     }
-    
-    
 }

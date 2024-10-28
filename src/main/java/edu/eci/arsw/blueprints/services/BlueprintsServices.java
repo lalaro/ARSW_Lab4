@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.arsw.blueprints.services;
 
 import edu.eci.arsw.blueprints.filters.BlueprintsFilter;
@@ -10,10 +5,9 @@ import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,29 +17,25 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BlueprintsServices {
-
     @Autowired
-    BlueprintsPersistence bpp;
-
+    private BlueprintsPersistence bpp;
     @Autowired
-    BlueprintsFilter filter;
+    private BlueprintsFilter filter;
 
     public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException {
         bpp.saveBlueprint(bp);
     }
-    
-    public ArrayList<String> getAllBlueprints(){
-        ArrayList<String> val = new ArrayList<>();
-        for(Blueprint b : bpp.getAllBlueprints()){
-            val.add(b.toString());
-            
-        }
 
+    public List<String> getAllBlueprints() { // Cambia aquí el tipo de retorno
+        List<String> val = new ArrayList<>(); // Cambia aquí el tipo de la variable
+        for (Blueprint b : bpp.getAllBlueprints()) {
+            val.add(b.toString());
+        }
         return val;
     }
-    
+
     /**
-     * 
+     *
      * @param author blueprint's author
      * @param name blueprint's name
      * @return the blueprint of the given name created by the given author
@@ -56,9 +46,9 @@ public class BlueprintsServices {
         filter.filter(blueprint); // Aplicar filtro antes de retornar el plano
         return blueprint;
     }
-    
+
     /**
-     * 
+     *
      * @param author blueprint's author
      * @return all the blueprints of the given author
      * @throws BlueprintNotFoundException if the given author doesn't exist
@@ -70,5 +60,4 @@ public class BlueprintsServices {
         }
         return blueprints;
     }
-
 }

@@ -1,3 +1,5 @@
+package edu.eci.arsw.blueprints.persistence.impl;
+
 import edu.eci.arsw.blueprints.filters.RedundancyFilter;
 import edu.eci.arsw.blueprints.filters.SubsamplingFilter;
 import edu.eci.arsw.blueprints.model.Blueprint;
