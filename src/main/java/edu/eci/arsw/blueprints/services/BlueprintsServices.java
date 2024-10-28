@@ -1,12 +1,10 @@
-package edu.eci.arsw.blueprints.services;
-
 import edu.eci.arsw.blueprints.filters.BlueprintsFilter;
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,17 +15,22 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BlueprintsServices {
+
+    private final BlueprintsPersistence bpp;
+    private final BlueprintsFilter filter;
+
     @Autowired
-    private BlueprintsPersistence bpp;
-    @Autowired
-    private BlueprintsFilter filter;
+    public BlueprintsServices(BlueprintsPersistence bpp, BlueprintsFilter filter) {
+        this.bpp = bpp;
+        this.filter = filter;
+    }
 
     public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException {
         bpp.saveBlueprint(bp);
     }
 
-    public List<String> getAllBlueprints() { // Cambia aquí el tipo de retorno
-        List<String> val = new ArrayList<>(); // Cambia aquí el tipo de la variable
+    public List<String> getAllBlueprints() {
+        List<String> val = new ArrayList<>();
         for (Blueprint b : bpp.getAllBlueprints()) {
             val.add(b.toString());
         }
