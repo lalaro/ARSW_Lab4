@@ -1,3 +1,5 @@
+package edu.eci.arsw.blueprints.services;
+
 import edu.eci.arsw.blueprints.filters.BlueprintsFilter;
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
